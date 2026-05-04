@@ -65,6 +65,7 @@ const createPost = async (req, res) => {
 
     const newPost = new Post({
       slug,
+      title, // ← thêm dòng này
       summary,
       content,
       author: req.user.username,
@@ -83,8 +84,8 @@ const createPost = async (req, res) => {
 const createComment = async (req, res) => {
   try {
     const { slug } = req.params;
-    const { content} = req.body;
-    console.log(content)
+    const { content } = req.body;
+    console.log(content);
 
     const post = await Post.findOne({ slug });
 

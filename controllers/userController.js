@@ -13,12 +13,11 @@ const getUsers = async (req, res) => {
   }
 };
 
-
-
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
 
+    console.log(username, password);
     const user = await User.findOne({ username });
 
     if (!user) {
@@ -52,4 +51,4 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { login, getUsers};
+module.exports = { login, getUsers };
